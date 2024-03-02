@@ -4,9 +4,9 @@ import { exploreContent } from '../../data/content'
 
 export function CTA() {
   return (
-    <div className="bg-cta min-h-[635px] relative bg-no-repeat bg-cover bg-center flex flex-col justify-center  ">
+    <div className="bg-cta min-h-[550px] relative bg-no-repeat bg-cover bg-center flex flex-col justify-center  bg-fixed">
       <div className="container ">
-        <div className=" text-whiteRock-100 w-1/2">
+        <div className=" text-whiteRock-100 lg:w-1/2 w-[70%]">
           <h2>Insert title</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt illum explicabo molestiae tempore, tempora
@@ -18,12 +18,12 @@ export function CTA() {
           <Button>Learn More </Button>
         </div>
 
-        <div className="bg-stone-800 text-whiteRock-100 flex flex-col max-w-[400px] absolute  -top-10 rounded-lg p-8 right-28">
+        <div className="bg-stone-800 text-whiteRock-100 flex flex-col max-w-[400px] lg:absolute  lg:-top-12 rounded-lg p-8 lg:right-28 lg:my-0 my-9">
           <h5>Explore Our Site</h5>
           <hr />
           {exploreContent.map((content) => (
             <div key={content.id} className="not-last:border-b  border-b-whiteRock-100">
-              <h5 className="flex justify-between items-start">
+              <h5 className="flex justify-between items-start font-headings">
                 {content.name}
                 <span>
                   <MoveRight />

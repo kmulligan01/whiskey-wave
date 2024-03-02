@@ -5,10 +5,9 @@ import { Button } from '../Buttons'
 import { PartyPopper, TentTree, CloudSun, UtensilsCrossed, Music4 } from 'lucide-react'
 import LensIcon from '@mui/icons-material/Lens'
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked'
-import style from './style.module.css'
 
 type WhiskeyItemDetailProps = {
-  wImage: ElementType | string
+  wImage: string
   wName: string
   wType: string
   wOccasion: string[]
@@ -46,7 +45,7 @@ export function WhiskeyItemDetail({ wImage, wName, wType, wOccasion, wAbu, wPric
   return (
     <>
       <picture className="w-1/3">
-        <img src={wImage} alt={wName} className="max-w-40" />
+        <img src={wImage} alt={wName} className="" />
       </picture>
       <div className="w-full">
         <h3>{wName}</h3>

@@ -32,10 +32,14 @@ export function ImageSlider() {
   }
 
   return (
-    <div className="mt-28">
+    <div className="mt-40">
       <Slider ref={sliderRef} {...settings} className="container ">
         {topWhiskies.map((whiskey, index) => (
-          <div key={index} className="w-[284px] pb-10 cursor-pointer" onClick={() => goToSlide(index)}>
+          <div
+            key={index}
+            className={`w-[284px] pb-10 cursor-pointer ${style.whiskeyBox}`}
+            onClick={() => goToSlide(index)}
+          >
             <div className="relative w-[236px] h-[346px] aspect-[.26/1] max-h-[346px]">
               <div className="left-border bottom-0 left-0 absolute w-[1px] z-[3] h-[316px] bg-stone-200"></div>
               <div
@@ -48,8 +52,8 @@ export function ImageSlider() {
               <div
                 className={`h-[calc(316px-60px)] absolute right-0 top-8 w-[176px] z-[2] bg-stone-200 bg-[100%] ${style.imageBox}`}
               ></div>
-              <picture className="item-picture h-[316px] absolute right-[41px] top-0 w-[calc( 316px * 0.2594936708 * 1 )] z-[3]">
-                <img src={whiskey.imageUrl} className="h-[316px] max-w-[150px]" alt={whiskey.name} />
+              <picture className="item-picture h-[330px] absolute right-0 top-0 w-[calc( 316px * 0.2594936708 * 1 )] z-[3]">
+                <img src={whiskey.imageUrl} className="h-[330px] max-w-[180px]" alt={whiskey.name} />
               </picture>
               <div className="item-arrow bg-transparent bottom-0 h-[60px] absolute right-0 w-[73px] z-[1]">
                 <div className="arrow-wrapper h-full relative hidden w-full ">

@@ -35,9 +35,9 @@ export function Header() {
           <ul className="flex justify-around items-center">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <Button variant="link" size="link" className=" font-bold">
+                <a href={link.url} className="text-whiteRock-100 hover:text-whiteRock-50 font-bold font-headings">
                   {link.text}
-                </Button>
+                </a>
               </li>
             ))}
           </ul>

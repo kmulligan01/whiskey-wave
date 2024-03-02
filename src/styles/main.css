@@ -1,3 +1,4 @@
 @import './utils/tailwind.css';
+@import './utils/typography.css';
 @import './layouts/container.css';
 @import './layouts/base.css';
