@@ -1,0 +1,32 @@
+.titleBox {
+  background-color: rgb(241, 230, 178, 0.3);
+}
+
+.imageBox {
+  background-color: rgb(219, 206, 124, 0.3);
+}
+
+.imageBox::before {
+  background-image: linear-gradient(180deg, #f1e6b2, #dbce7c);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -100;
+  transition: opacity 0.5s;
+}
+
+.whiskeyDetailSection:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 20%;
+  top: -50px;
+  border-bottom: 50px solid #edebd7;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
