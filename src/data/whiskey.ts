@@ -1,13 +1,13 @@
-import glenfiddich from '../assets/whiskies/glenfiddich01.png'
-import jackDaniels from '../assets/whiskies/jackDaniels.png'
-import jameson from '../assets/whiskies/jameson01.png'
-import jwBlueLabel from '../assets/whiskies/jwBlueLabel01.png'
-import makersMark from '../assets/whiskies/makers.png'
-import redbreast from '../assets/whiskies/redbreast.png'
-import stranahanBluePeak from '../assets/whiskies/stranahans01.png'
-import tully from '../assets/whiskies/tully.png'
-import wildTurkey from '../assets/whiskies/wildTurkey01.png'
-import woodfordReserve from '../assets/whiskies/woodfordReserve.png'
+import glenfiddich from '../assets/images/whiskies/glenfiddich01.png'
+import jackDaniels from '../assets/images/whiskies/jackDaniels.png'
+import jameson from '../assets/images/whiskies/jameson01.png'
+import jwBlueLabel from '../assets/images/whiskies/jwBlueLabel01.png'
+import makersMark from '../assets/images/whiskies/makers.png'
+import redbreast from '../assets/images/whiskies/redbreast.png'
+import stranahanBluePeak from '../assets/images/whiskies/stranahans01.png'
+import tully from '../assets/images/whiskies/tully.png'
+import wildTurkey from '../assets/images/whiskies/wildTurkey01.png'
+import woodfordReserve from '../assets/images/whiskies/woodfordReserve.png'
 
 export const topWhiskies = [
   {

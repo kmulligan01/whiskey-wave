@@ -1,14 +1,13 @@
-import { GlassWater, Hop, Martini } from 'lucide-react'
-import stranahans from '../../assets/whiskies/stranahans01.png'
+import stranahans from '../../assets/images/whiskies/stranahans01.png'
 
 export function Intro() {
   return (
     <section className="bg-intro bg-center bg-no-repeat bg-contain bg-[#D7D5CD] ">
-      <div className="container py-10">
-        <h2 className="text-center mb-20">Whiskey of The Month</h2>
-        <div className="grid lg:grid-cols-3 grid-cols-1 gap-8">
-          <div className="flex flex-col lg:text-right">
-            <div className="flex-grow">
+      <div className="container pt-10 pb-32">
+        <h2 className="text-center mb-20 text-stone-800">Whiskey of The Month</h2>
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 text-stone-800">
+          <div className="flex flex-col lg:text-right ">
+            <div className="flex-grow ">
               <h4>Some Title</h4>
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, quas, eius repellendus.</p>
             </div>

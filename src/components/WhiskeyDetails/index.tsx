@@ -1,4 +1,4 @@
-import { ElementType, useState } from 'react'
+import { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import { Rating } from '@mui/material'
 import { Button } from '../Buttons'
@@ -44,15 +44,15 @@ export function WhiskeyItemDetail({ wImage, wName, wType, wOccasion, wAbu, wPric
 
   return (
     <>
-      <picture className="w-1/3">
+      <picture className="md:w-1/3 w-full">
         <img src={wImage} alt={wName} className="" />
       </picture>
       <div className="w-full">
         <h3>{wName}</h3>
         <div className="border-y-2 border-y-stone-600">
-          <div className={`grid grid-cols-2 border-b-2 border-b-stone-600 `}>
+          <div className={`grid md:grid-cols-2 md:border-b-2 border-b-stone-600 grid-cols-1`}>
             <h4>{wType}</h4>
-            <div className="flex items-center justify-around border-l-2 border-l-stone-600">
+            <div className="flex lg:items-center lg:justify-around md:border-l-2 border-l-stone-600 flex-col lg:flex-row">
               {wOccasion.map((occasion, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <Button size="icon" variant="dark">
@@ -63,7 +63,7 @@ export function WhiskeyItemDetail({ wImage, wName, wType, wOccasion, wAbu, wPric
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 grid-col">
+          <div className="grid md:grid-cols-2 grid-col grid-cols-1">
             <div>
               <h6 className="text-stone-600">History</h6>
               <p>
@@ -79,7 +79,7 @@ export function WhiskeyItemDetail({ wImage, wName, wType, wOccasion, wAbu, wPric
               </p>
             </div>
 
-            <div className="flex flex-col items-center justify-start text-center border-l-2 border-l-stone-600">
+            <div className="flex flex-col items-center justify-start text-center md:border-l-2 border-l-stone-600">
               <div className="border-b-2 border-b-stone-600 w-full pb-5">
                 <h6 className="text-stone-600">Rating</h6>
                 <StyledRating
@@ -96,7 +96,7 @@ export function WhiskeyItemDetail({ wImage, wName, wType, wOccasion, wAbu, wPric
                 <h6 className="text-stone-600">Price</h6>
                 <p className="font-bold text-lg">{wPrice}</p>
               </div>
-              <div className="">
+              <div className="pb-5 md:pb-0">
                 <h6 className="text-stone-600">Alc/Vol</h6>
                 <Button size="icon" variant="dark">
                   {wAbu}

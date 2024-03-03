@@ -1,5 +1,3 @@
-import { Button } from '../Buttons'
-
 const navLinks = [
   {
     text: 'Home',
@@ -29,8 +27,13 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="bg-transparent z-10 container p-8 absolute top-0 left-1/2 -translate-x-1/2">
-      <div>
+    <header className="bg-transparent z-10  absolute top-0 left-1/2 -translate-x-1/2 w-full">
+      <div className="bg-yellow-200 py-[1px]">
+        <p className="text-xs font-bold">
+          123 Alpine Dr | Denver, Colorado 80014 | Phone: (123) 456-7590 | info@whiskeywave.com
+        </p>
+      </div>
+      <div className="container py-8">
         <nav className="">
           <ul className="flex justify-around items-center">
             {navLinks.map((link, index) => (

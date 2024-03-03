@@ -16,12 +16,35 @@ export function ImageSlider() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     swipeToSlide: true,
     afterChange: (index) => {
       setCurrentSlide(index)
     },
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          autoplay: true,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
 
   const goToSlide = (index) => {
@@ -32,7 +55,7 @@ export function ImageSlider() {
   }
 
   return (
-    <div className="mt-40">
+    <div className="pt-40 bg-sliderBg bg-[#D7D5CD] ">
       <Slider ref={sliderRef} {...settings} className="container ">
         {topWhiskies.map((whiskey, index) => (
           <div
@@ -80,7 +103,7 @@ export function ImageSlider() {
       </Slider>
       <section className="mt-28 bg-whiskeyDetails relative">
         <div className={` ${style.whiskeyDetailSection}`}>
-          <div className="flex items-start gap-8 container py-28">
+          <div className="flex items-start gap-8 container py-28 md:flex-row flex-col">
             {topWhiskies.map((whiskey, index) => (
               <>
                 {currentSlide === index && (

@@ -1,5 +1,6 @@
 import { Facebook, LinkedIn, Language } from '@mui/icons-material'
 import { Button } from '../Buttons'
+import footerLogo from '../../assets/images/logos/footerLogo.png'
 
 export function Footer() {
   const socialIcons = [
@@ -21,7 +22,7 @@ export function Footer() {
     <section className="bg-stone-900 text-whiteRock-100 text-center">
       <div className="container p-12">
         <div>
-          <img src="#" alt="logo" className="mx-auto" />
+          <img src={footerLogo} alt="logo" className="mx-auto max-w-[80px] mb-8" />
 
           <p className="text-sm">
             123 Alpine Dr | Denver, Colorado 80014 | Phone: (123) 456-7590 | info@whiskeywave.com
