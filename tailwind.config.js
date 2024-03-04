@@ -118,7 +118,7 @@ export default {
       addBase({
         h1: {
           fontFamily: theme('fontFamily.headings'),
-          fontSize: theme('fontSize.5xl'),
+
           lineHeight: '120%',
           fontWeight: '700',
           margin: '2rem 0 1rem 0',
@@ -136,7 +136,7 @@ export default {
           fontFamily: theme('fontFamily.headings'),
           fontSize: '2rem',
           lineHeight: '120%',
-          fontWeight: '700',
+          fontWeight: '500',
           margin: '2rem 0 1rem 0',
           color: theme('colors.purple.DEFAULT'),
         },

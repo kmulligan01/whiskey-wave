@@ -17,9 +17,9 @@ type WhiskeyItemDetailProps = {
 }
 
 export function WhiskeyItemDetail({ wImage, wName, wType, wOccasion, wAbu, wPrice, wRating }: WhiskeyItemDetailProps) {
-  const [myRating, setBeerRating] = useState(wRating)
+  const [myRating] = useState(wRating)
 
-  const getIconByOccasion = (occasion) => {
+  const getIconByOccasion = (occasion: string) => {
     switch (occasion) {
       case 'Celebration':
         return <PartyPopper />

@@ -1,15 +1,17 @@
 import { useRef, useState } from 'react'
 import Slider from 'react-slick'
-import { slickGoTo } from 'react-slick'
+
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { topWhiskies } from '../../data/whiskey'
 import style from './style.module.css'
 import { WhiskeyItemDetail } from '../WhiskeyDetails'
 
+type SlickSliderRef = Slider
+
 export function ImageSlider() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const sliderRef = useRef(null)
+  const sliderRef = useRef<SlickSliderRef | null>(null)
 
   const settings = {
     arrows: false,
@@ -19,7 +21,8 @@ export function ImageSlider() {
     slidesToShow: 4,
     slidesToScroll: 1,
     swipeToSlide: true,
-    afterChange: (index) => {
+    autoplay: false,
+    afterChange: (index: number) => {
       setCurrentSlide(index)
     },
     responsive: [
@@ -27,7 +30,6 @@ export function ImageSlider() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          autoplay: true,
           infinite: true,
           dots: true,
         },
@@ -42,12 +44,13 @@ export function ImageSlider() {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
+          autoplay: false,
         },
       },
     ],
   }
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     if (sliderRef.current) {
       sliderRef.current.slickGoTo(index)
       setCurrentSlide(index)

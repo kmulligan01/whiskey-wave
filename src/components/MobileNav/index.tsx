@@ -1,57 +1,50 @@
 import * as React from 'react'
-import style from './style.module.css'
-import { Button, Drawer, Divider, ListItem, List, ListItemText, ListItemButton, IconButton } from '@mui/material'
-import { useTheme } from '@mui/material/styles'
+import { Button } from '../Buttons'
+import { Drawer, Link } from '@mui/material'
+
 import MenuIcon from '@mui/icons-material/Menu'
-import wwLogo from '@public/images/aa-logo-sharp.svg'
-import Image from 'next/image'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
-import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import XIcon from '@mui/icons-material/X'
+import footerLogo from '../../assets/images/logos/footerLogo.png'
 
-const SOCIAL_MEDIA_ICONS = [
-  { icon: <FacebookIcon />, label: 'Facebook' },
-  { icon: <InstagramIcon />, label: 'Instagram' },
-  { icon: <XIcon />, label: 'X' },
-  { icon: <PhoneIphoneIcon />, label: 'Phone' },
-]
+type MobileNavProps = {
+  links: {
+    text: string
+    url: string
+  }[]
+}
 
-const NavigationList = ({ items }) => (
-  <List>
-    {items.map(({ label, onClick }) => (
-      <React.Fragment key={label}>
-        <ListItemButton onClick={onClick}>
-          <ListItemText primary={label} />
-        </ListItemButton>
-        <Divider />
-      </React.Fragment>
-    ))}
-  </List>
-)
-
-const MyIconButton = ({ icon, onClick }) => <IconButton onClick={onClick}>{icon}</IconButton>
-
-export default function Navigation() {
+export default function MobileNav({ links }: MobileNavProps) {
   const [state, setState] = React.useState({ right: false })
   const anchor = 'right'
-  const theme = useTheme()
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  const toggleDrawer = (anchor: string, open: boolean) => (event: React.SyntheticEvent) => {
+    if (event.type === 'keydown' && (event as React.KeyboardEvent).key === 'Tab') {
+      // Handle keyboard event
       return
     }
 
+    // Handle other events (e.g., mouse click)
     setState({ ...state, [anchor]: open })
   }
 
+  const SOCIAL_MEDIA_ICONS = [
+    { id: 1, icon: <FacebookIcon />, label: 'Facebook' },
+    { id: 2, icon: <InstagramIcon />, label: 'Instagram' },
+    { id: 3, icon: <XIcon />, label: 'X' },
+    { id: 4, icon: <PhoneIphoneIcon />, label: 'Phone' },
+  ]
+
   return (
-    <div className="flex justify-between items-center py-7 bg-transparent w-full absolute z-[2] container left-0 right-0">
-      <Image src={wwLogo} width={120} alt="Whiskey Wisdom Logo" />
-      <IconButton onClick={toggleDrawer(anchor, true)} className={style.menuButton}>
-        <MenuIcon color={theme.palette.primary.main} />
-      </IconButton>
+    <>
+      <div className="flex justify-between items-center">
+        <img src={footerLogo} alt="Whiskey Wave Logo" className="lg:max-w-[150px] max-w-[60px] max-h-[60px]" />
+
+        <Button onClick={toggleDrawer(anchor, true)} size="icon">
+          <MenuIcon />
+        </Button>
+      </div>
       <Drawer
         anchor={anchor}
         open={state[anchor]}
@@ -59,28 +52,36 @@ export default function Navigation() {
         sx={{
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: '350px',
+            width: '200px',
             paddingY: '32px',
-            background: theme.palette.primary.light,
+            background: '#dbd5ad',
           },
         }}
       >
-        <NavigationList
-          items={[
-            { label: 'Home', onClick: () => {} },
-            { label: 'About', onClick: () => {} },
-            { label: 'Beers', onClick: () => {} },
-            { label: 'Contact', onClick: () => {} },
-          ]}
-        />
-        <div className="bottom-0 absolute p-8">
-          <ListItem disablePadding>
-            {SOCIAL_MEDIA_ICONS.map(({ icon, label }) => (
-              <MyIconButton key={label} icon={icon} onClick={() => {}} />
+        <div className="text-lg font-copy flex flex-col px-2  ">
+          {links.map((link, index) => (
+            <Link
+              key={index}
+              href={link.url}
+              underline="none"
+              color="#272421"
+              className="not-last:border-b not-last:mb-2 "
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
+
+        <div className="bottom-0 absolute px-2 pb-8 left-0">
+          <div className="flex">
+            {SOCIAL_MEDIA_ICONS.map(({ icon, id }) => (
+              <Button key={id} onClick={() => {}} size="icon" variant="dark" className="not-last:mr-2">
+                {icon}
+              </Button>
             ))}
-          </ListItem>
+          </div>
         </div>
       </Drawer>
-    </div>
+    </>
   )
 }
